@@ -56,6 +56,9 @@ svg .fill { fill: currentColor; stroke: none; }
 .btn-dark { background: var(--ink); color: #fff; }
 .btn-dark:hover { background: #4b4b4d; }
 .btn-outline { border: 1.5px solid var(--line-2); background: #fff; }
+.btn-wa { background: #25d366; color: var(--ink); }
+.btn-wa:hover { background: #1fb957; }
+.btn svg.wa-icon { width: 20px; height: 20px; }
 .btn-outline:hover { border-color: var(--ink); }
 .btn-lg { min-height: 60px; width: 100%; font-size: 16px; }
 .icon-btn {
@@ -77,7 +80,9 @@ svg .fill { fill: currentColor; stroke: none; }
   display: flex; align-items: center; justify-content: space-between;
   height: 36px; padding: 0 var(--gutter); background: #fff; font-size: 12px; font-weight: 500;
 }
+.util-contact { display: flex; align-items: center; gap: 18px; }
 .util-ig { display: inline-flex; align-items: center; gap: 6px; }
+.util-wa svg { color: #1fb957; }
 .util-ig svg { width: 18px; height: 18px; }
 .util-links { display: flex; align-items: center; }
 .util-links a { padding: 0 12px; position: relative; }
@@ -419,7 +424,7 @@ body.nav-hidden .pdp-gallery { top: 16px; }
 }
 .float-cta:hover { transform: scale(1.06); }
 .float-cta svg { width: 26px; height: 26px; stroke-width: 1.8; }
-.float-cta.is-wa { background: #25d366; box-shadow: 0 6px 18px rgba(0,0,0,.18); }
+.float-cta.is-wa { background: #25d366; color: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.18); }
 
 /* ---------- Stock ---------- */
 /* Franja de stock: banda negra, justo debajo de la portada, con fotos verticales */
