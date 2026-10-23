@@ -94,7 +94,7 @@
       <div class="hero">
         <div class="hero-copy">
           <p class="hero-kicker"><span class="hero-dot" aria-hidden="true"></span>Lomas de Zamora · Envíos a todo el país</p>
-          <h2 class="hero-title" id="heroTitle">Botines para cada cancha</h2>
+          <h2 class="hero-title" id="heroTitle">Tu próximo <span>botín está acá</span></h2>
           <p class="hero-lead">Pares en stock para llevarte hoy y encargos de Nike, Adidas, Puma y más. Elegí el tuyo, mandanos la consulta y coordinamos la entrega.</p>
           <div class="hero-ctas">
             <a class="btn btn-dark" href="#/stock">Ver stock disponible</a>
@@ -107,53 +107,6 @@
           <span class="hero-tag" id="heroTag"></span>
         </a>
       </div>
-
-      <section class="canchas" aria-labelledby="canchasTitle">
-        <h2 class="section-title" id="canchasTitle">¿Dónde jugás?</h2>
-        <div class="cancha-grid">
-          <a class="cancha" href="#/?tipo=f11">
-            <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
-              <rect width="160" height="100" fill="#2e7d3a"/>
-              <g fill="#358a42"><rect x="0" width="20" height="100"/><rect x="40" width="20" height="100"/><rect x="80" width="20" height="100"/><rect x="120" width="20" height="100"/></g>
-              <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".9"><rect x="8" y="8" width="144" height="84"/><path d="M80 8v84"/><circle cx="80" cy="50" r="13"/><rect x="8" y="28" width="22" height="44"/><rect x="130" y="28" width="22" height="44"/><rect x="8" y="40" width="8" height="20"/><rect x="144" y="40" width="8" height="20"/></g>
-            </svg>
-            <span class="cancha-name">Fútbol 11</span>
-            <span class="cancha-sub">Césped natural · tapones</span>
-            <span class="cancha-count" data-count="f11"></span>
-          </a>
-          <a class="cancha" href="#/?tipo=f5">
-            <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
-              <rect width="160" height="100" fill="#1d1d1f"/>
-              <rect x="10" y="10" width="140" height="80" fill="#2f9e55"/>
-              <g fill="#3aad62"><rect x="10" y="10" width="140" height="10"/><rect x="10" y="30" width="140" height="10"/><rect x="10" y="50" width="140" height="10"/><rect x="10" y="70" width="140" height="10"/></g>
-              <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".9"><rect x="16" y="16" width="128" height="68"/><path d="M80 16v68"/><circle cx="80" cy="50" r="10"/><path d="M16 36a14 14 0 0 1 0 28M144 36a14 14 0 0 0 0 28"/></g>
-            </svg>
-            <span class="cancha-name">Fútbol 5</span>
-            <span class="cancha-sub">Sintético · multitapón</span>
-            <span class="cancha-count" data-count="f5"></span>
-          </a>
-          <a class="cancha" href="#/?tipo=futsal">
-            <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
-              <rect width="160" height="100" fill="#c98b52"/>
-              <g stroke="#b97c45" stroke-width="1"><path d="M0 12.5h160M0 25h160M0 37.5h160M0 50h160M0 62.5h160M0 75h160M0 87.5h160"/></g>
-              <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".95"><rect x="8" y="8" width="144" height="84"/><path d="M80 8v84"/><circle cx="80" cy="50" r="11"/><path d="M8 30a20 20 0 0 1 20 20a20 20 0 0 1-20 20M152 30a20 20 0 0 0-20 20a20 20 0 0 0 20 20"/></g>
-            </svg>
-            <span class="cancha-name">Futsal</span>
-            <span class="cancha-sub">Piso · suela lisa</span>
-            <span class="cancha-count" data-count="futsal"></span>
-          </a>
-          <a class="cancha" href="#/?tipo=mixto">
-            <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
-              <rect width="160" height="100" fill="#3f6e2c"/>
-              <g fill="#6a5233" opacity=".85"><ellipse cx="42" cy="66" rx="26" ry="11"/><ellipse cx="118" cy="30" rx="20" ry="9"/><ellipse cx="96" cy="78" rx="14" ry="6"/></g>
-              <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".75"><rect x="8" y="8" width="144" height="84"/><path d="M80 8v84"/><circle cx="80" cy="50" r="13"/></g>
-            </svg>
-            <span class="cancha-name">Mixtos</span>
-            <span class="cancha-sub">Pasto blando o barro · tapones de aluminio</span>
-            <span class="cancha-count" data-count="mixto"></span>
-          </a>
-        </div>
-      </section>
     </section>
 
     <!-- Franja de stock (solo en el catálogo sin filtros) -->
@@ -162,9 +115,10 @@
         <div>
           <p class="badge badge-stock">Entrega inmediata</p>
           <h2 id="shelfTitle">Stock disponible</h2>
+          <p class="shelf-lead">Pares que tenemos hoy en Lomas de Zamora. En CABA y GBA te llegan en el día.</p>
         </div>
         <div class="shelf-actions">
-          <a class="shelf-all" href="#/stock">Ver todo</a>
+          <a class="shelf-all" href="#/stock">Ver todo el stock</a>
           <div class="track-arrows">
             <button type="button" aria-label="Anterior" data-track="stockTrack" data-dir="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l-8 8 8 8"/></svg></button>
             <button type="button" aria-label="Siguiente" data-track="stockTrack" data-dir="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
@@ -172,6 +126,54 @@
         </div>
       </div>
       <div class="related-track shelf-track" id="stockTrack"></div>
+    </section>
+
+    <!-- Accesos por superficie (solo en el catálogo sin filtros) -->
+    <section class="canchas" id="canchas" aria-labelledby="canchasTitle">
+      <h2 class="section-title" id="canchasTitle">¿Dónde jugás?</h2>
+      <div class="cancha-grid">
+        <a class="cancha" href="#/?tipo=f11">
+          <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
+            <rect width="160" height="100" fill="#2e7d3a"/>
+            <g fill="#358a42"><rect x="0" width="20" height="100"/><rect x="40" width="20" height="100"/><rect x="80" width="20" height="100"/><rect x="120" width="20" height="100"/></g>
+            <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".9"><rect x="8" y="8" width="144" height="84"/><path d="M80 8v84"/><circle cx="80" cy="50" r="13"/><rect x="8" y="28" width="22" height="44"/><rect x="130" y="28" width="22" height="44"/><rect x="8" y="40" width="8" height="20"/><rect x="144" y="40" width="8" height="20"/></g>
+          </svg>
+          <span class="cancha-name">Fútbol 11</span>
+          <span class="cancha-sub">Césped natural · tapones</span>
+          <span class="cancha-count" data-count="f11"></span>
+        </a>
+        <a class="cancha" href="#/?tipo=f5">
+          <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
+            <rect width="160" height="100" fill="#1d1d1f"/>
+            <rect x="10" y="10" width="140" height="80" fill="#2f9e55"/>
+            <g fill="#3aad62"><rect x="10" y="10" width="140" height="10"/><rect x="10" y="30" width="140" height="10"/><rect x="10" y="50" width="140" height="10"/><rect x="10" y="70" width="140" height="10"/></g>
+            <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".9"><rect x="16" y="16" width="128" height="68"/><path d="M80 16v68"/><circle cx="80" cy="50" r="10"/><path d="M16 36a14 14 0 0 1 0 28M144 36a14 14 0 0 0 0 28"/></g>
+          </svg>
+          <span class="cancha-name">Fútbol 5</span>
+          <span class="cancha-sub">Sintético · multitapón</span>
+          <span class="cancha-count" data-count="f5"></span>
+        </a>
+        <a class="cancha" href="#/?tipo=futsal">
+          <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
+            <rect width="160" height="100" fill="#c98b52"/>
+            <g stroke="#b97c45" stroke-width="1"><path d="M0 12.5h160M0 25h160M0 37.5h160M0 50h160M0 62.5h160M0 75h160M0 87.5h160"/></g>
+            <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".95"><rect x="8" y="8" width="144" height="84"/><path d="M80 8v84"/><circle cx="80" cy="50" r="11"/><path d="M8 30a20 20 0 0 1 20 20a20 20 0 0 1-20 20M152 30a20 20 0 0 0-20 20a20 20 0 0 0 20 20"/></g>
+          </svg>
+          <span class="cancha-name">Futsal</span>
+          <span class="cancha-sub">Piso · suela lisa</span>
+          <span class="cancha-count" data-count="futsal"></span>
+        </a>
+        <a class="cancha" href="#/?tipo=mixto">
+          <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
+            <rect width="160" height="100" fill="#3f6e2c"/>
+            <g fill="#6a5233" opacity=".85"><ellipse cx="42" cy="66" rx="26" ry="11"/><ellipse cx="118" cy="30" rx="20" ry="9"/><ellipse cx="96" cy="78" rx="14" ry="6"/></g>
+            <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".75"><rect x="8" y="8" width="144" height="84"/><path d="M80 8v84"/><circle cx="80" cy="50" r="13"/></g>
+          </svg>
+          <span class="cancha-name">Mixtos</span>
+          <span class="cancha-sub">Pasto blando o barro · tapones de aluminio</span>
+          <span class="cancha-count" data-count="mixto"></span>
+        </a>
+      </div>
     </section>
 
     <!-- Cómo comprar (solo en el catálogo sin filtros) -->

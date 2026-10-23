@@ -69,7 +69,7 @@
     body: document.querySelector('.plp-body'), toggle: $('#toggleFilters'), apply: $('#applyFilters'), sort: $('#sort'),
     pdp: $('#pdp'), plp: $('#catalogo'), search: $('#searchInput'), toast: $('#toast'),
     shelf: $('#stockShelf'), shelfTrack: $('#stockTrack'), stock: $('#stockPage'), stockGrid: $('#stockGrid'),
-    home: $('#home'), howto: $('#howto'),
+    home: $('#home'), canchas: $('#canchas'), howto: $('#howto'),
   };
   const mobile = window.matchMedia('(max-width: 960px)');
 
@@ -119,13 +119,15 @@
   const activeCount = () => FACETS.reduce((n, f) => n + state.f[f.key].size, 0);
 
   // ---------- Piezas ----------
-  // Fotos propias generadas por tools/procesar.mjs: 600 y 1200 px de ancho, fondo blanco y el botín centrado.
+  // Fotos propias: 600 y 1200 px de ancho (tools/procesar.mjs y tools/reales.mjs). Las del stock tienen además
+  // una versión vertical 4:5 (480 y 960 px) para la franja y la página de stock.
   const img = (code, size) => `img/p/${code}-${size}.webp`;
   // load: 'lazy' (grilla), 'high' (foto principal de la ficha) o 'auto' (resto de la galería, para que cambie al instante).
-  function media(p, sizes, { load = 'lazy', code = p.imgs[0], alt = `${p.name}, ${TIPO_SUB[p.tipo].toLowerCase()}` } = {}) {
-    const srcset = `${img(code, 'sm')} 600w, ${img(code, 'lg')} 1200w`;
+  function media(p, sizes, { load = 'lazy', code = p.imgs[0], alt = `${p.name}, ${TIPO_SUB[p.tipo].toLowerCase()}`, vertical = false } = {}) {
+    const [sm, lg, w] = vertical ? ['v-sm', 'v-lg', [480, 960]] : ['sm', 'lg', [600, 1200]];
+    const srcset = `${img(code, sm)} ${w[0]}w, ${img(code, lg)} ${w[1]}w`;
     const attr = load === 'high' ? 'fetchpriority="high"' : load === 'lazy' ? 'loading="lazy"' : '';
-    return `<div class="media${p.real.has(code) ? ' is-real' : ''}"><img src="${img(code, 'lg')}" srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}" ${attr} decoding="async"></div>`;
+    return `<div class="media${vertical ? ' is-vertical' : ''}"><img src="${img(code, lg)}" srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}" ${attr} decoding="async"></div>`;
   }
   function badge(p) {
     if (p.tag === 'stock') return '<p class="badge badge-stock">Entrega inmediata</p>';
@@ -178,8 +180,8 @@
     });
   }
   const galleryIndex = () => { const t = $('#gTrack'); return t ? Math.round(t.scrollLeft / t.clientWidth) : 0; };
-  const card = (p, sizes = GRID_SIZES) =>
-    `<a class="card" href="#/p/${p.code}">${media(p, sizes)}<div class="card-info">${badge(p)}<h3 class="card-name">${esc(p.name)}</h3><p class="card-sub">${subtitle(p)}</p>${versionsNote(p)}<p class="card-code">Cód. ${p.code}</p></div></a>`;
+  const card = (p, sizes = GRID_SIZES, opts = {}) =>
+    `<a class="card" href="#/p/${p.code}">${media(p, sizes, opts)}<div class="card-info">${badge(p)}<h3 class="card-name">${esc(p.name)}</h3><p class="card-sub">${subtitle(p)}</p>${versionsNote(p)}<p class="card-code">Cód. ${p.code}</p></div></a>`;
 
   // ---------- Catálogo ----------
   let current = [];
@@ -256,7 +258,7 @@
 
   function renderCatalog() {
     const browsing = activeCount() > 0 || !!state.q; // con filtros o búsqueda se va directo a los resultados
-    el.home.hidden = el.howto.hidden = browsing;
+    el.home.hidden = el.canchas.hidden = el.howto.hidden = browsing;
     el.shelf.hidden = !stockProducts.length || browsing;
     renderTitle();
     renderChips();
@@ -369,11 +371,11 @@
 
   // ---------- Stock ----------
   function renderShelf() {
-    el.shelfTrack.innerHTML = stockProducts.map((p) => card(p, '(max-width: 960px) 62vw, 24vw')).join('');
+    el.shelfTrack.innerHTML = stockProducts.map((p) => card(p, '(max-width: 960px) 62vw, 24vw', { vertical: true })).join('');
   }
   function renderStockPage() {
     $('#stockCount').textContent = `${stockProducts.length} ${stockProducts.length === 1 ? 'modelo listo' : 'modelos listos'} para entregar`;
-    el.stockGrid.innerHTML = stockProducts.map((p) => card(p)).join('');
+    el.stockGrid.innerHTML = stockProducts.map((p) => card(p, '(max-width: 960px) 50vw, 30vw', { vertical: true })).join('');
   }
 
   function message(p) {
