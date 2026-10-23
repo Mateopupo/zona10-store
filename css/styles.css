@@ -512,6 +512,7 @@ body.view-stock .plp { display: none; }
 .cancha:hover svg.cancha-art { transform: translateY(-4px); }
 
 .howto { margin: 16px 0 8px; padding: 40px var(--gutter) 44px; background: var(--ink); color: #fff; }
+.shelf:not([hidden]) + .howto { margin-top: -1px; border-top: 1px solid #3a3a3a; }
 .howto-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding: 0; }
 .howto-steps li { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: start; }
 .howto-n { grid-row: span 2; font: 400 64px/0.8 var(--display); color: var(--accent); }
