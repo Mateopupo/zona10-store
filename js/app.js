@@ -69,6 +69,7 @@
     body: document.querySelector('.plp-body'), toggle: $('#toggleFilters'), apply: $('#applyFilters'), sort: $('#sort'),
     pdp: $('#pdp'), plp: $('#catalogo'), search: $('#searchInput'), toast: $('#toast'),
     shelf: $('#stockShelf'), shelfTrack: $('#stockTrack'), stock: $('#stockPage'), stockGrid: $('#stockGrid'),
+    home: $('#home'), howto: $('#howto'),
   };
   const mobile = window.matchMedia('(max-width: 960px)');
 
@@ -254,7 +255,9 @@
   }
 
   function renderCatalog() {
-    el.shelf.hidden = !stockProducts.length || activeCount() > 0 || !!state.q;
+    const browsing = activeCount() > 0 || !!state.q; // con filtros o búsqueda se va directo a los resultados
+    el.home.hidden = el.howto.hidden = browsing;
+    el.shelf.hidden = !stockProducts.length || browsing;
     renderTitle();
     renderChips();
     renderFilters();
@@ -347,6 +350,21 @@
         <div class="related-track" id="relatedTrack">${related.map((x) => card(x, '(max-width: 960px) 62vw, 30vw')).join('')}</div>
       </section>` : ''}`;
     $('#gTrack')?.addEventListener('scroll', () => gallerySync(), { passive: true });
+  }
+
+  // ---------- Portada ----------
+  function renderHome() {
+    const cards = onePerFamily(products); // se cuenta como en la grilla: una tarjeta por familia
+    for (const node of document.querySelectorAll('[data-count]')) {
+      const n = cards.filter((p) => p.tipo === node.dataset.count).length;
+      node.textContent = `${fmt(n)} ${n === 1 ? 'modelo' : 'modelos'}`;
+    }
+    $('#heroAll').textContent = `Ver los ${fmt(cards.length)} botines`;
+    const featured = byCode.get($('#heroArt').getAttribute('href').split('/').pop());
+    if (featured) {
+      $('#heroTag').textContent = `${featured.name} · Cód. ${featured.code}`;
+      $('#heroArt').setAttribute('aria-label', `Ver ${featured.name}, código ${featured.code}`);
+    }
   }
 
   // ---------- Stock ----------
@@ -660,6 +678,7 @@
   }
   $('#year').textContent = new Date().getFullYear();
 
+  renderHome();
   renderShelf();
   route();
 })();

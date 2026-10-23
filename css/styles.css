@@ -453,6 +453,74 @@ body.nav-hidden .pdp-gallery { top: 16px; }
 .stock-foot p { font-weight: 500; }
 body.view-stock .plp { display: none; }
 
+/* Portada: el "10" lima detrás del botín, accesos por superficie y cómo comprar */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: center; gap: 24px;
+  min-height: clamp(460px, 64vh, 640px); padding: 40px var(--gutter) 48px; background: var(--surface); overflow: hidden;
+}
+.hero-kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; }
+.hero-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 1px rgba(0, 0, 0, .12); }
+.hero-title { margin: 14px 0 18px; font: 400 clamp(56px, 7.4vw, 124px)/0.88 var(--display); text-transform: uppercase; letter-spacing: 0.005em; }
+.hero-lead { max-width: 470px; color: #3a3a3c; font-size: 18px; line-height: 1.5; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-art { position: relative; display: grid; place-items: center; min-height: 100%; }
+.hero-num {
+  position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; user-select: none;
+  font: 400 clamp(280px, 36vw, 580px)/0.8 var(--display); color: var(--accent); letter-spacing: -0.02em;
+  transform: skewX(-8deg) translateY(-6%); animation: hero-num .7s var(--ease) both;
+}
+.hero-art img {
+  position: relative; z-index: 1; width: 74%; max-width: 600px; height: auto;
+  transform: translate(8%, 16%) rotate(-6deg); filter: drop-shadow(0 28px 28px rgba(0, 0, 0, .18));
+  transition: transform .5s var(--ease); animation: hero-boot .8s .1s var(--ease) both;
+}
+.hero-art:hover img { transform: translate(8%, 13%) rotate(-9deg) scale(1.02); }
+.hero-tag {
+  position: absolute; right: 2%; bottom: 6%; z-index: 2; padding: 6px 12px; border-radius: 30px;
+  background: #fff; font-size: 12px; font-weight: 500; white-space: nowrap;
+}
+.hero-tag:empty { display: none; }
+@keyframes hero-num { from { opacity: 0; transform: skewX(-8deg) translate(40px, -6%); } }
+@keyframes hero-boot { from { opacity: 0; transform: translate(8%, 26%) rotate(-16deg); } }
+
+.section-title { font-size: 24px; line-height: 1.2; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 16px; }
+.canchas { padding: 40px var(--gutter) 8px; }
+.cancha-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.cancha { display: flex; flex-direction: column; }
+.cancha svg.cancha-art { width: 100%; height: auto; aspect-ratio: 16 / 10; stroke: none; transition: transform .3s var(--ease); }
+.cancha-name { margin-top: 12px; font-weight: 500; }
+.cancha-sub { color: var(--ink-2); font-size: 14px; line-height: 1.4; }
+.cancha-count { margin-top: 2px; font-size: 14px; }
+.cancha:hover .cancha-name { text-decoration: underline; text-underline-offset: 3px; }
+.cancha:hover svg.cancha-art { transform: translateY(-4px); }
+
+.howto { margin: 16px 0 8px; padding: 40px var(--gutter) 44px; background: var(--ink); color: #fff; }
+.howto-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding: 0; }
+.howto-steps li { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: start; }
+.howto-n { grid-row: span 2; font: 400 64px/0.8 var(--display); color: var(--accent); }
+.howto-steps strong { font-size: 18px; font-weight: 500; line-height: 1.3; }
+.howto-steps span:not(.howto-n) { color: #cacacb; font-size: 15px; line-height: 1.5; margin-top: 4px; }
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; min-height: 0; padding: 20px var(--gutter) 32px; gap: 8px; }
+  .hero-art { order: -1; aspect-ratio: 4 / 3; }
+  .hero-art img { width: 82%; }
+  .hero-tag { right: 0; bottom: 0; }
+  .hero-num { font-size: 76vw; }
+  .hero-title { font-size: clamp(48px, 14vw, 72px); margin: 10px 0 12px; }
+  .hero-lead { font-size: 16px; }
+  .hero-ctas { margin-top: 20px; }
+  .hero-ctas .btn { flex: 1 1 auto; }
+  .canchas { padding-top: 32px; }
+  .cancha-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; }
+  .howto-steps { grid-template-columns: 1fr; gap: 24px; }
+  .howto-n { font-size: 52px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-num, .hero-art img { animation: none; }
+  .hero-art img, .cancha svg.cancha-art { transition: none; }
+}
+
 /* Vista de producto */
 body.view-pdp .plp, body.view-pdp .float-cta { display: none; }
 

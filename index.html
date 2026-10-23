@@ -89,6 +89,73 @@
 
   <!-- Catálogo -->
   <main id="catalogo" class="plp">
+    <!-- Portada (solo en el catálogo sin filtros) -->
+    <section class="home" id="home" aria-labelledby="heroTitle">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="hero-kicker"><span class="hero-dot" aria-hidden="true"></span>Lomas de Zamora · Envíos a todo el país</p>
+          <h2 class="hero-title" id="heroTitle">Botines para cada cancha</h2>
+          <p class="hero-lead">Pares en stock para llevarte hoy y encargos de Nike, Adidas, Puma y más. Elegí el tuyo, mandanos la consulta y coordinamos la entrega.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-dark" href="#/stock">Ver stock disponible</a>
+            <a class="btn btn-outline" href="#plpHead" id="heroAll">Ver todos los botines</a>
+          </div>
+        </div>
+        <a class="hero-art" id="heroArt" href="#/p/TUAXO">
+          <span class="hero-num" aria-hidden="true">10</span>
+          <img src="img/portada.webp" srcset="img/portada-sm.webp 700w, img/portada.webp 874w" sizes="(max-width: 960px) 92vw, 50vw" width="874" height="639" alt="" fetchpriority="high">
+          <span class="hero-tag" id="heroTag"></span>
+        </a>
+      </div>
+
+      <section class="canchas" aria-labelledby="canchasTitle">
+        <h2 class="section-title" id="canchasTitle">¿Dónde jugás?</h2>
+        <div class="cancha-grid">
+          <a class="cancha" href="#/?tipo=f11">
+            <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
+              <rect width="160" height="100" fill="#2e7d3a"/>
+              <g fill="#358a42"><rect x="0" width="20" height="100"/><rect x="40" width="20" height="100"/><rect x="80" width="20" height="100"/><rect x="120" width="20" height="100"/></g>
+              <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".9"><rect x="8" y="8" width="144" height="84"/><path d="M80 8v84"/><circle cx="80" cy="50" r="13"/><rect x="8" y="28" width="22" height="44"/><rect x="130" y="28" width="22" height="44"/><rect x="8" y="40" width="8" height="20"/><rect x="144" y="40" width="8" height="20"/></g>
+            </svg>
+            <span class="cancha-name">Fútbol 11</span>
+            <span class="cancha-sub">Césped natural · tapones</span>
+            <span class="cancha-count" data-count="f11"></span>
+          </a>
+          <a class="cancha" href="#/?tipo=f5">
+            <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
+              <rect width="160" height="100" fill="#1d1d1f"/>
+              <rect x="10" y="10" width="140" height="80" fill="#2f9e55"/>
+              <g fill="#3aad62"><rect x="10" y="10" width="140" height="10"/><rect x="10" y="30" width="140" height="10"/><rect x="10" y="50" width="140" height="10"/><rect x="10" y="70" width="140" height="10"/></g>
+              <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".9"><rect x="16" y="16" width="128" height="68"/><path d="M80 16v68"/><circle cx="80" cy="50" r="10"/><path d="M16 36a14 14 0 0 1 0 28M144 36a14 14 0 0 0 0 28"/></g>
+            </svg>
+            <span class="cancha-name">Fútbol 5</span>
+            <span class="cancha-sub">Sintético · multitapón</span>
+            <span class="cancha-count" data-count="f5"></span>
+          </a>
+          <a class="cancha" href="#/?tipo=futsal">
+            <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
+              <rect width="160" height="100" fill="#c98b52"/>
+              <g stroke="#b97c45" stroke-width="1"><path d="M0 12.5h160M0 25h160M0 37.5h160M0 50h160M0 62.5h160M0 75h160M0 87.5h160"/></g>
+              <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".95"><rect x="8" y="8" width="144" height="84"/><path d="M80 8v84"/><circle cx="80" cy="50" r="11"/><path d="M8 30a20 20 0 0 1 20 20a20 20 0 0 1-20 20M152 30a20 20 0 0 0-20 20a20 20 0 0 0 20 20"/></g>
+            </svg>
+            <span class="cancha-name">Futsal</span>
+            <span class="cancha-sub">Piso · suela lisa</span>
+            <span class="cancha-count" data-count="futsal"></span>
+          </a>
+          <a class="cancha" href="#/?tipo=mixto">
+            <svg class="cancha-art" viewBox="0 0 160 100" aria-hidden="true">
+              <rect width="160" height="100" fill="#3f6e2c"/>
+              <g fill="#6a5233" opacity=".85"><ellipse cx="42" cy="66" rx="26" ry="11"/><ellipse cx="118" cy="30" rx="20" ry="9"/><ellipse cx="96" cy="78" rx="14" ry="6"/></g>
+              <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".75"><rect x="8" y="8" width="144" height="84"/><path d="M80 8v84"/><circle cx="80" cy="50" r="13"/></g>
+            </svg>
+            <span class="cancha-name">Mixtos</span>
+            <span class="cancha-sub">Pasto blando o barro · tapones de aluminio</span>
+            <span class="cancha-count" data-count="mixto"></span>
+          </a>
+        </div>
+      </section>
+    </section>
+
     <!-- Franja de stock (solo en el catálogo sin filtros) -->
     <section class="shelf" id="stockShelf" aria-labelledby="shelfTitle" hidden>
       <div class="shelf-head">
@@ -105,6 +172,16 @@
         </div>
       </div>
       <div class="related-track shelf-track" id="stockTrack"></div>
+    </section>
+
+    <!-- Cómo comprar (solo en el catálogo sin filtros) -->
+    <section class="howto" id="howto" aria-labelledby="howtoTitle">
+      <h2 class="section-title" id="howtoTitle">Cómo comprar</h2>
+      <ol class="howto-steps">
+        <li><span class="howto-n" aria-hidden="true">1</span><strong>Elegí el botín y tu talle</strong><span>Cada botín tiene su código. Si no sabés tu talle, te ayudamos a medirlo.</span></li>
+        <li><span class="howto-n" aria-hidden="true">2</span><strong>Mandanos la consulta</strong><span>El botón de la ficha arma el mensaje con el modelo, el código y el talle para el chat de @zona10.arg.</span></li>
+        <li><span class="howto-n" aria-hidden="true">3</span><strong>Coordinamos pago y entrega</strong><span>En CABA y GBA te llega en el día. Al resto del país lo mandamos por envío.</span></li>
+      </ol>
     </section>
 
     <div class="plp-head" id="plpHead">
